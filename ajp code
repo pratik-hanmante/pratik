@@ -1,0 +1,151 @@
+Experiment No. 1
+Code:
+package practicals;
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+public class Practical_1 extends Applet implements KeyListener
+{
+String msg = "key pressed is : ";
+public void init()
+{
+addKeyListener(this);
+}
+public void keyPressed(KeyEvent k)
+{
+ int key = k.getKeyCode();
+ switch(key)
+ {
+ case KeyEvent.VK_RIGHT:
+ msg = msg + "RIGHT ";
+ break;
+ case KeyEvent.VK_LEFT:
+ msg = msg + "LEFT ";
+ break;
+ case KeyEvent.VK_UP:
+ msg = msg + "UP ";
+ break;
+ case KeyEvent.VK_DOWN:
+ msg = msg + "DOWN ";
+ break;
+ 
+ }
+ repaint();
+}
+public void keyReleased(KeyEvent k){ 
+ showStatus("Key Released");
+ repaint();
+}
+public void keyTyped(KeyEvent k){
+showStatus("Key pressed");
+repaint();}
+public void paint(Graphics g)
+{
+ g.drawString(msg, 10, 10);
+}
+}
+/* 
+ <applet code="keyEventDemo" height=400 width=400>
+ </applet>
+*
+
+
+Exp.9 _Source Code:
+HelloWorld.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<font color="gray" size="5">
+<%= "Hello World!" %>
+</font>
+</body>
+< center>
+<br><br>
+<font color="gray" size="5">
+ The date now is: <%= new java.util.Date() %>
+</font>
+< center>
+< body>
+</html>
+</html>
+
+
+
+Source Code Exp.7:
+Home.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="http://localhost:8080/SimpleLogin/home.jsp"> Home</a>
+<a href="http://localhost:8080/SimpleLogin/login.jsp"> Login</a>
+</body>
+</html>
+Login.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="LoginCheck" method="post">
+<pre>
+UserName :<input type="text" name="name">
+Password: <input type="text" name=pass>
+ <input type="Submit" value="Submit">
+</pre>
+</form>
+</body>
+</html>
+Welcome.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+< center>
+< br >< br>
+< font color= "gray" size= "5">
+ Welcome!
+ </ font>
+ </ center>
+<font color="gray" size="5">
+ User Name is :${name}<br/>
+</font>
+<font color="gray" size="5">
+ Password is :${pass}
+</font>
+ 
+</body>
+</html>
+Error.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Unsuccessful login!
+</body>
+</html
