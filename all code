@@ -1,0 +1,701 @@
+Experiment No. 1
+Code:
+package practicals;
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+public class Practical_1 extends Applet implements KeyListener
+{
+String msg = "key pressed is : ";
+public void init()
+{
+addKeyListener(this);
+}
+public void keyPressed(KeyEvent k)
+{
+ int key = k.getKeyCode();
+ switch(key)
+ {
+ case KeyEvent.VK_RIGHT:
+ msg = msg + "RIGHT ";
+ break;
+ case KeyEvent.VK_LEFT:
+ msg = msg + "LEFT ";
+ break;
+ case KeyEvent.VK_UP:
+ msg = msg + "UP ";
+ break;
+ case KeyEvent.VK_DOWN:
+ msg = msg + "DOWN ";
+ break;
+ 
+ }
+ repaint();
+}
+public void keyReleased(KeyEvent k){ 
+ showStatus("Key Released");
+ repaint();
+}
+public void keyTyped(KeyEvent k){
+showStatus("Key pressed");
+repaint();}
+public void paint(Graphics g)
+{
+ g.drawString(msg, 10, 10);
+}
+}
+/* 
+ <applet code="keyEventDemo" height=400 width=400>
+ </applet>
+*/
+Experiment No 2
+Code:
+package practicals;
+import java.awt.*;
+import java.awt.event.*;
+public class Practical_2 extends Frame implements MouseListener {
+Label l;
+Practical_2() {
+super("AWT Frame");
+l = new Label();
+l.setFont(new Font("Courier New", Font.ITALIC, 20));
+l.setBackground(Color.GREEN);
+l.setBounds(25, 60, 250, 30);
+l.setAlignment(Label.CENTER);
+this.add(l);
+this.setSize(300, 300);
+this.setLayout(null);
+this.setVisible(true);
+this.addMouseListener(this);
+this.addWindowListener(new WindowAdapter() {
+public void windowClosing(WindowEvent e) {
+dispose();
+}
+});
+}
+public static void main(String[] args) {
+new Practical_2();
+}
+@Override
+public void mouseClicked(MouseEvent e) {
+l.setText("Mouse Clicked");
+}
+@Override
+public void mousePressed(MouseEvent e) {
+}
+@Override
+public void mouseReleased(MouseEvent e) {
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+l.setText("Mouse Entered");
+}
+@Override
+public void mouseExited(MouseEvent e) {
+l.setText("Mouse Exited");
+}
+}
+Experiment No. 3
+Code:
+package practicals;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener ;
+import javax.swing.JButton ;
+import javax.swing.JLabel ;
+import javax.swing.JFrame;
+import javax.swing.JPanel ;
+import javax.swing.JTextField;
+public class Practical_3 extends JFrame{
+JPanel jp = new JPanel() ;
+JLabel lname = new JLabel() ;
+JButton bsubmit = new JButton("Submit") ;
+JTextField tname = new JTextField(20) ;
+JLabel lMath = new JLabel() ;
+JTextField tMath = new JTextField(20) ;
+JLabel lScience = new JLabel() ;
+JTextField tScience = new JTextField(20) ;
+JLabel lEnglish = new JLabel() ;
+JTextField tEnglish = new JTextField(20) ;
+public Practical_3(){
+lname.setText("Enter name :");
+jp.add(lname) ;
+jp.add(tname) ;
+lMath.setText("Enter Maths Marks :");
+jp.add(lMath) ;
+jp.add(tMath) ;
+lScience.setText("Enter Science Marks :");
+jp.add(lScience) ;
+jp.add(tScience) ;
+lEnglish.setText("Enter English Marks :");
+jp.add(lEnglish) ;
+jp.add(tEnglish) ;
+jp.add(bsubmit) ;
+add(jp) ;
+bsubmit.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent arg0){
+String val = tname.getText() ;
+JLabel l1 = new JLabel("Welcome "+ val) ;
+int sub1 = Integer.parseInt(tMath.getText()) ;
+int sub2 = Integer.parseInt(tScience.getText()) ;
+int sub3 = Integer.parseInt(tEnglish.getText()) ;
+int sum = sub1 + sub2 + sub3 ;
+float average = sum/3 ;
+JLabel l2 = new JLabel("Average = "+ average) ;
+JPanel jip = new JPanel() ;
+jip.add(l1) ;
+jip.add(l2) ;
+JFrame inf = new JFrame() ;
+inf.setVisible(true) ;
+inf.add(jip) ;
+inf.setSize(300 , 100);
+}
+});
+}
+public static void main(String[] args) {
+Practical_3 rp = new Practical_3() ;
+rp.setSize(300 , 200);
+rp.setVisible(true);
+}}
+
+Dept.ofE&TC
+SKNCOE, Pune
+Output:
+Conclusions:
+Questions:
+1. What is an Applet?
+2. What is the difference between an applet and a Java application?
+3. Explain the life cycle of an Applet.
+4. What are the restrictions imposed on java applets?
+5. What are the advantages and disadvantages of applets?
+Dept.ofE&TC
+SKNCOE, Pune
+Output:
+Conclusions:
+Questions:
+1. What Are The Component And Container Class?
+2. What is the difference between the paint() and repaint() methods?
+3. What Are The Subclasses Of The Container Class?
+4. What are the methods of MouseListener ?
+5. Explain the the hierarchy of Java AWT classes.
+Dept.ofE&TC
+SKNCOE, Pune
+Output:
+Conclusions:
+Questions:
+1. Write the constructors of JPanel, JTextField, JButton and JLabel?
+2. What are the important classes of Swing API?
+3. Write about java Swing API hierarchy?
+i/p
+import java.io.*; 
+import java.net.*; 
+public class In_Address{ 
+public static void main(String[] args){ 
+try{ 
+InetAddress ip=InetAddress.getByName("www.amazon.com"); 
+ 
+System.out.println("Host Name: "+ip.getHostName()); 
+System.out.println("IP Address: "+ip.getHostAddress()); 
+}catch(Exception e){System.out.println(e);} 
+} 
+} 
+o/p
+Host Name: www.amazon.com
+IP Address: 13.227.140.95
+Exp.9 _Source Code:
+HelloWorld.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<font color="gray" size="5">
+<%= "Hello World!" %>
+</font>
+</body>
+< center>
+<br><br>
+<font color="gray" size="5">
+ The date now is: <%= new java.util.Date() %>
+</font>
+< center>
+< body>
+</html>
+</html>
+Output:
+Source Code Exp8:
+Databasecreation.java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Databasecreation {
+ static final String DB_URL = "jdbc:mysql://localhost:3306/";
+ static final String USER = "root";
+ static final String PASS = "admin";
+ public static void main(String[] args) {
+ // Open a connection
+ try(Connection conn = DriverManager.getConnection(DB_URL, USER, 
+PASS);
+ Statement stmt = conn.createStatement();
+ ) { 
+ String sql = "CREATE DATABASE STUDENTS1";
+ stmt.executeUpdate(sql);
+ System.out.println("Database created successfully..."); 
+ } catch (SQLException e) {
+ e.printStackTrace();
+ } 
+ }
+}
+Tablecreation.java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Tablecreation {
+ static final String DB_URL = 
+"jdbc:mysql://localhost:3306/STUDENTS";
+ static final String USER = "root";
+ static final String PASS = "admin";
+ public static void main(String[] args) {
+ // Open a connection
+ try(Connection conn = DriverManager.getConnection(DB_URL, USER, 
+PASS);
+ Statement stmt = conn.createStatement();
+ ) { 
+ String sql = "CREATE TABLE REG " +
+ "(id INTEGER not NULL, " +
+ " first VARCHAR(255), " + 
+ " last VARCHAR(255), " + 
+ " age INTEGER, " + 
+ " PRIMARY KEY ( id ))"; 
+ stmt.executeUpdate(sql);
+ System.out.println("Created table in given database..."); 
+ } catch (SQLException e) {
+ e.printStackTrace();
+ } 
+ }
+}
+Insertingdata.java
+ import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Insertingdata {
+ static final String DB_URL = 
+"jdbc:mysql://localhost:3306/STUDENTS";
+ static final String USER = "root";
+ static final String PASS = "admin";
+ public static void main(String[] args) {
+ // Open a connection
+ try(Connection conn = DriverManager.getConnection(DB_URL, USER, 
+PASS);
+ Statement stmt = conn.createStatement();
+ ) { 
+ // Execute a query
+ System.out.println("Inserting records into the table..."); 
+ String sql = "INSERT INTO REG VALUES (100, 'Zara', 'Ali', 18)";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO REG VALUES (101, 'Mahnaz', 'Fatma', 25)";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO REG VALUES (102, 'Zaid', 'Khan', 30)";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO REG VALUES(103, 'Sumit', 'Mittal', 28)";
+ stmt.executeUpdate(sql);
+ System.out.println("Inserted records into the table..."); 
+ } catch (SQLException e) {
+ e.printStackTrace();
+ } 
+ }
+}
+Displaydata.java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class Displaydata {
+ static final String DB_URL = 
+"jdbc:mysql://localhost:3306/STUDENTS";
+ static final String USER = "root";
+ static final String PASS = "admin";
+ static final String QUERY = "SELECT id, first, last, age FROM REG";
+ public static void main(String[] args) {
+ // Open a connection
+ try(Connection conn = DriverManager.getConnection(DB_URL, USER, 
+PASS);
+ Statement stmt = conn.createStatement();
+ ResultSet rs = stmt.executeQuery(QUERY);
+ ) { 
+ while(rs.next()){
+ //Display values
+ System.out.print("ID: " + rs.getInt("id"));
+ System.out.print(", Age: " + rs.getInt("age"));
+ System.out.print(", First: " + rs.getString("first"));
+ System.out.println(", Last: " + rs.getString("last"));
+ }
+ } catch (SQLException e) {
+ e.printStackTrace();
+ } 
+ }
+}
+Output Exp8:
+Database created successfully...
+Connecting to a selected database...
+Connected database successfully...
+Created table in given database...
+Inserting records into the table...
+Inserted records into the table...
+ID: 100, Age: 18, First: Zara, Last: Ali
+ID: 101, Age: 25, First: Mahnaz, Last: Fatma
+ID: 102, Age: 30, First: Zaid, Last: Khan
+ID: 103, Age: 28, First: Sumit, Last: Mittal
+Source Code Exp10:
+Index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Calculator</title>
+</head>
+<body>
+< center>
+<form method =get action=Calculator>
+Number-1<input type=text name =t1><br><br>
+Number-2<input type=text name =t2><br><br>
+<input type =submit value = "+" name =btn>
+<input type =submit value = "-" name =btn>
+<input type =submit value = "*" name =btn>
+<input type =submit value = "/" name =btn>
+</form>
+< center>
+</body>
+</html>
+Calculator.html
+package Perform;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class Calculator extends HttpServlet {
+private static final long serialVersionUID = 1L;
+ protected void doGet(HttpServletRequest request, 
+HttpServletResponse response) throws ServletException, IOException {
+ 
+ response.setContentType("text/html");
+ PrintWriter out=null;
+ try
+ {
+ out=response.getWriter();
+ out.println("<center>");
+ int 
+a=Integer.parseInt(request.getParameter("t1"));
+ int 
+b=Integer.parseInt(request.getParameter("t2"));
+ int c=0;
+ String op=request.getParameter("btn");
+ if (op.equals("+")) c= a+b;
+ if (op.equals("-")) c= a-b;
+ if (op.equals("*")) c= a*b;
+ if (op.equals("/")) c= a/b;
+out.println("<h3>"+a+op+b+"="+c+"</h3>");
+ }
+ catch (Exception e)
+ {
+ out.println("Error:"+e.getMessage());
+ }
+ finally {
+ out.println("<br>");
+ out.println("To goto main page<a 
+href=index.html> CLICK HERE</a>");
+ out.println("/center");
+ }
+ }
+protected void doPost(HttpServletRequest request, 
+HttpServletResponse response) throws ServletException, IOException {
+// TODO Auto-generated method stub
+doGet(request, response);
+}
+}
+Output Exp10:
+Source Code Exp.7:
+Home.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="http://localhost:8080/SimpleLogin/home.jsp"> Home</a>
+<a href="http://localhost:8080/SimpleLogin/login.jsp"> Login</a>
+</body>
+</html>
+Login.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="LoginCheck" method="post">
+<pre>
+UserName :<input type="text" name="name">
+Password: <input type="text" name=pass>
+ <input type="Submit" value="Submit">
+</pre>
+</form>
+</body>
+</html>
+Welcome.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+< center>
+< br >< br>
+< font color= "gray" size= "5">
+ Welcome!
+ </ font>
+ </ center>
+<font color="gray" size="5">
+ User Name is :${name}<br/>
+</font>
+<font color="gray" size="5">
+ Password is :${pass}
+</font>
+ 
+</body>
+</html>
+Error.jsp:
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Unsuccessful login!
+</body>
+</html>
+LoginServlet:
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+/**
+ * Servlet implementation class LoginCheck
+ */
+public class LoginCheck extends HttpServlet {
+private static final long serialVersionUID = 1L;
+ 
+ /**
+ * @see HttpServlet#HttpServlet()
+ */
+ public LoginCheck() {
+ super();
+ // TODO Auto-generated constructor stub
+ }
+/**
+ * @see HttpServlet#doGet(HttpServletRequest request, 
+HttpServletResponse response)
+ */
+protected void doGet(HttpServletRequest request, 
+HttpServletResponse response) throws ServletException, 
+IOException {
+// TODO Auto-generated method stub
+response.getWriter().append("Served at: 
+").append(request.getContextPath());
+}
+/**
+ * @see HttpServlet#doPost(HttpServletRequest request, 
+HttpServletResponse response)
+ */
+protected void doPost(HttpServletRequest request, 
+HttpServletResponse response) throws ServletException, 
+IOException {
+doGet(request, response);
+String name=request.getParameter("name");
+String pass=request.getParameter("pass");
+if(name.equals("Sujata") && pass.equals("pass123"))
+{
+HttpSession session=request.getSession();
+session.setAttribute("name", name);
+session.setAttribute("pass", pass);
+response.sendRedirect("member.jsp");
+}
+else
+{
+response.sendRedirect("error.jsp");
+}
+ }
+}
+Output Exp.7:
+
+
+Source Code Exp.4:
+ package exp4;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+public class po{
+ static final String DB_URL = 
+"jdbc:mysql://localhost:3306/sonoo";
+ static final String USER = "root";
+ static final String PASS = "admin";
+ public static void main(String[] args) {
+ // Open a connection
+ System.out.println("Database Connected 
+Successfully...");
+ try(Connection conn = 
+DriverManager.getConnection(DB_URL, USER, PASS);
+ Statement stmt = conn.createStatement();
+ ) { 
+ // Execute a query
+ System.out.println("Inserting records into the table..."); 
+ String sql = "INSERT INTO Registration VALUES (142, 
+'Anisha')";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO Registration VALUES (215, 'Araya')";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO Registration VALUES (221, 'Bhavan')";
+ stmt.executeUpdate(sql);
+ sql = "INSERT INTO Registration VALUES(221, 'Ishika')";
+ stmt.executeUpdate(sql);
+ System.out.println("Inserted records into the table..."); 
+ String query = "SELECT * FROM Registration ";
+ Statement st = conn.createStatement();
+ ResultSet rs = st.executeQuery(query);
+ while (rs.next())
+ {
+ int id = rs.getInt("p");
+ String Name = rs.getString("n");
+ 
+ // print the results
+ System.out.format("%s, %s\n", id, Name);
+ }
+ st.close();
+ }
+ catch (Exception e)
+ {
+ System.err.println("Got an exception! ");
+ System.err.println(e.getMessage());
+ }
+ }
+ }
+Output Exp.4:
+Database Connected Successfully...
+Inserting records into the table...
+Inserted records into the table...
+142, Anisha
+215, Araya
+221, Bhavan
+221, Ishika
+Source Code Exp.5:
+RMI_SER.java
+import java.io.*;
+import java.rmi.*;
+import java.net.*;
+public class RMI_SER
+{
+ public static void main(String args[]) throws Exception
+ {
+ try
+ {
+ palendrome twox = new palendrome();
+ Naming.bind("palin", twox);
+ System.out.println("Object registered");
+ }
+ catch(Exception e)
+ {
+ System.out.println("Exception" + e);
+ }
+ }
+}
+Palinterface.java:
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+interface PalInterface extends Remote
+{
+ public int palin(String a) throws RemoteException;
+}
+Palindrome.java
+import java.rmi.*;
+import java.lang.*;
+import java.rmi.server.*;
+public class palendrome extends UnicastRemoteObject 
+implements PalInterface
+{
+ public palendrome() throws RemoteException { }
+ public int palin(String a) throws RemoteException
+ {
+ System.out.println("Hello");
+ StringBuffer str = new StringBuffer(a);
+ String str1 = str.toString();
+ System.out.println("Print : " + str1.toString());
+ StringBuffer str2 = str.reverse();
+ System.out.println("Print : " + str2.toString());
+ int b = str1.compareTo(str2.toString());
+ System.out.println("Print : " + b);
+ if (b == 0)
+ return 1;
+ else
+ return 0;
+ }
+}
+Palclient.java
+import java.io.*;
+import java.rmi.*;
+import java.net.*;
+public class palclient
+{
+ public static void main(String args[]) throws Exception
+ {
+ try
+ {
+ String s1 = "rmi://localhost/palin";
+ PalInterface onex = (PalInterface)Naming.lookup(s1);
+ int m = onex.palin("madam");
+ System.out.println("Print : " + m);
+ if (m == 1)
+ {
+ System.out.println("The given string is a 
+Palindrome");
+ }
+ else
+ {
+ System.out.println("The given string is not a 
+Palindrome");
+ }
+ }
+ catch (Exception e)
+ {
+ System.out.println("Exception" + e);
+ }
+ }
+}
+Output Exp.5:
+Object registered
+Print : 1
+The given string is a Palindrome
